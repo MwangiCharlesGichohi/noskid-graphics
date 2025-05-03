@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X,} from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import logo from '../assets/clients/logo.png';
 
 const Navbar: React.FC = () => {
@@ -43,9 +43,7 @@ const Navbar: React.FC = () => {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
-                    className={`text-sm font-medium transition-colors hover:text-teal-500 ${
-                      isScrolled ? 'text-gray-800' : 'text-gray-900'
-                    }`}
+                    className="text-sm font-medium transition-colors hover:text-teal-500 text-gray-800"
                   >
                     {item}
                   </a>

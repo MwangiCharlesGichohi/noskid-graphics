@@ -1,73 +1,85 @@
-import React from 'react';
-import { ChevronRight, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronRight } from 'lucide-react';
+import heroPhoto1 from '../assets/clients/herophoto1.jpg';
+import heroPhoto2 from '../assets/clients/herophoto2.jpg';
 
 const HeroSection: React.FC = () => {
-  return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNGM0LjQxOCAwIDgtMy41ODIgOC04cy0zLjU4Mi04LTgtOC04IDMuNTgyLTggOCAzLjU4MiA4IDggOHoiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIi8+PC9nPjwvc3ZnPg==')] opacity-20" />
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [heroPhoto1, heroPhoto2];
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div className="space-y-8 text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight animate-fade-in">
-              Creating <span className="text-teal-400">Visual Stories</span> That Leave Lasting Impressions
-            </h1>
-            
-            <p className="text-lg md:text-xl text-teal-100 max-w-2xl mx-auto lg:mx-0 animate-fade-in-delayed">
-              We blend creativity with strategy to design compelling brand experiences that connect, engage, and inspire action.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-delayed-2">
-              <a 
-                href="#contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-teal-500 rounded-lg hover:bg-teal-400 transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg group"
-              >
-                Start Your Project
-                <ChevronRight className="ml-2 w-5 h-5 transform transition-transform group-hover:translate-x-1" />
-              </a>
-              
-              <a 
-                href="#portfolio"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-teal-100 border-2 border-teal-400/30 rounded-lg hover:bg-teal-400/10 transition-all duration-300 group"
-              >
-                View Our Work
-                <ArrowRight className="ml-2 w-5 h-5 transform transition-transform group-hover:translate-x-1" />
-              </a>
-            </div>
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section id="home" className="relative min-h-screen flex items-center">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/50 to-secondary-900/30 z-10"></div>
+      
+      {/* Slideshow */}
+      <div className="absolute inset-0 overflow-hidden bg-primary-900">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center ${
+              currentSlide === index ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={slide}
+              alt={`Hero ${index + 1}`}
+              className="w-full h-auto max-h-screen object-contain"
+            />
           </div>
-          
-          {/* Stats/Features */}
-          <div className="grid grid-cols-2 gap-6 animate-fade-in-delayed-3">
-            {[
-              { number: '10+', label: 'Years Experience' },
-              { number: '200+', label: 'Projects Completed' },
-              { number: '98%', label: 'Client Satisfaction' },
-              { number: '50+', label: 'Active Clients' }
-            ].map((stat, index) => (
-              <div 
-                key={index}
-                className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:border-teal-400/50 transition-all duration-300 group"
-              >
-                <div className="text-3xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
-                  {stat.number}
-                </div>
-                <div className="text-teal-100 text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <a href="#services" className="flex flex-col items-center text-teal-100 hover:text-teal-400 transition-colors">
-          <span className="text-sm mb-2">Scroll Down</span>
-          <ChevronRight className="w-6 h-6 transform rotate-90" />
-        </a>
+      {/* Navigation dots */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              currentSlide === index
+                ? 'bg-white w-4'
+                : 'bg-white/50 hover:bg-white/75'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            DESIGN | PRINT | BRANDING | <span className="text-secondary-400">SIGNAGES</span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 mb-8">
+            We have a great passion for creativity and are committed to offering excellent products and services to our clients. From creative design to printing, branding, and display solutions, we bring your vision to life.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#portfolio"
+              className="inline-flex items-center justify-center bg-secondary-500 hover:bg-secondary-600 
+              text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
+            >
+              View Our Work
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center bg-transparent border-2 
+              border-white text-white hover:bg-white/10 font-medium py-3 px-6 rounded-lg 
+              transition-colors duration-300"
+            >
+              Get in Touch <ChevronRight className="ml-2 h-5 w-5" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
