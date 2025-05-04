@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
             <img
               src={slide}
               alt={`Hero ${index + 1}`}
-              className="w-full h-auto max-h-screen object-contain"
+              className="w-full h-screen object-cover"
             />
           </div>
         ))}
@@ -57,26 +57,26 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            DESIGN | PRINT | BRANDING | <span className="text-secondary-400">SIGNAGES</span>
+            Creating <span className="text-teal-400">Visual Stories</span> That Leave Lasting Impressions
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8">
-            We have a great passion for creativity and are committed to offering excellent products and services to our clients. From creative design to printing, branding, and display solutions, we bring your vision to life.
+            We blend creativity with strategy to design compelling brand experiences that connect, engage, and inspire action.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="#portfolio"
-              className="inline-flex items-center justify-center bg-secondary-500 hover:bg-secondary-600 
-              text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
-            >
-              View Our Work
-            </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-delayed-2">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center bg-transparent border-2 
-              border-white text-white hover:bg-white/10 font-medium py-3 px-6 rounded-lg 
-              transition-colors duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-teal-500 rounded-lg hover:bg-teal-400 transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg group"
             >
-              Get in Touch <ChevronRight className="ml-2 h-5 w-5" />
+              Start Your Project
+              <ChevronRight className="ml-2 w-5 h-5 transform transition-transform group-hover:translate-x-1" />
+            </a>
+
+            <a
+              href="#portfolio"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-teal-100 border-2 border-teal-400/30 rounded-lg hover:bg-teal-400/10 transition-all duration-300 group"
+            >
+              View Our Work
+              <ChevronRight className="ml-2 w-5 h-5 transform transition-transform group-hover:translate-x-1" />
             </a>
           </div>
         </div>

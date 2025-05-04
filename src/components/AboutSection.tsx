@@ -1,4 +1,5 @@
 import React from 'react';
+
 import showcase from '../assets/clients/showcase.jpg';
 
 const AboutSection: React.FC = () => {
