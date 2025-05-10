@@ -57,15 +57,15 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Creating <span className="text-teal-400">Visual Stories</span> That Leave Lasting Impressions
+            Creating <span className="text-custom-blue">Visual Stories</span> That Leave Lasting Impressions
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8">
-            We blend creativity with strategy to design compelling brand experiences that connect, engage, and inspire action.
+            We blend creativity with strategy to design compelling brand experiences that connect, engage and inspire action.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-delayed-2">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-teal-500 rounded-lg hover:bg-teal-400 transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg group"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-custom-blue rounded-lg hover:bg-custom-blue/90 transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg group"
             >
               Start Your Project
               <ChevronRight className="ml-2 w-5 h-5 transform transition-transform group-hover:translate-x-1" />

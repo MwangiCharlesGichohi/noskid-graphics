@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
               alt="Noskid Graphics Logo" 
               className="h-12 w-12 object-contain"
             />
-            <span className="ml-2 text-xl font-bold text-gray-900">Noskid Graphics</span>
+            <span className="ml-2 text-xl font-bold text-orange-500">Noskid Graphics</span>
           </div>
 
           {/* Desktop Navigation */}
