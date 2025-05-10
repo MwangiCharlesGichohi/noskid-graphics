@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Creating <span className="text-custom-blue">Visual Stories</span> That Leave Lasting Impressions
+            Creating <span className="text-orange-500">Visual Stories</span> That Leave Lasting Impressions
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8">
             We blend creativity with strategy to design compelling brand experiences that connect, engage and inspire action.

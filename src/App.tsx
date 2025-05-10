@@ -5,7 +5,6 @@ import ServicesSection from './components/ServicesSection';
 import PortfolioSection from './components/PortfolioSection';
 import AboutSection from './components/AboutSection';
 import ClientsSection from './components/ClientsSection';
-import BlogSection from './components/BlogSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -49,7 +48,6 @@ function App() {
       <PortfolioSection />
       <AboutSection />
       <ClientsSection />
-      <BlogSection />
       <TestimonialsSection />
       <ContactSection />
       <Footer />
