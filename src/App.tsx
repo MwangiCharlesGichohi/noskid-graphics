@@ -9,6 +9,7 @@ import TestimonialsSection from './components/TestimonialsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import EmailPopup from './components/EmailPopup';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   useEffect(() => {
@@ -52,6 +53,7 @@ function App() {
       <ContactSection />
       <Footer />
       <EmailPopup />
+      <WhatsAppButton />
     </div>
   );
 }

@@ -1,29 +1,8 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import React from 'react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ContactSection: React.FC = () => {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `Hi! I'm ${formState.name}.\n\nSubject: ${formState.subject}\n\n${formState.message}`;
-    const whatsappUrl = `https://wa.me/254707497950?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -49,13 +28,12 @@ const ContactSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-1"
           >
             <div className="bg-white p-8 rounded-2xl shadow-soft hover:shadow-card transition-shadow duration-300 border border-gray-100">
               <h3 className="text-2xl font-semibold text-gray-900 mb-8">Contact Information</h3>
@@ -101,102 +79,6 @@ const ContactSection: React.FC = () => {
                   </div>
                 </motion.div>
               </div>
-            </div>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2"
-          >
-            <div className="bg-white p-8 rounded-2xl shadow-soft hover:shadow-card transition-shadow duration-300 border border-gray-100">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-8">Send Us a Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="group">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2 group-focus-within:text-primary-600 transition-colors">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formState.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all hover:border-gray-300"
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                  
-                  <div className="group">
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2 group-focus-within:text-primary-600 transition-colors">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all hover:border-gray-300"
-                      placeholder="john@example.com"
-                      required
-                    />
-                  </div>
-                </div>
-                
-                <div className="group">
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2 group-focus-within:text-primary-600 transition-colors">
-                    Subject
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    value={formState.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all hover:border-gray-300"
-                    required
-                  >
-                    <option value="">Select a subject</option>
-                    <option value="Creative Design">Creative Design</option>
-                    <option value="Printing">Printing</option>
-                    <option value="Branding">Branding</option>
-                    <option value="Display Solutions">Display Solutions</option>
-                    <option value="Animation">Animation & Video</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                
-                <div className="group">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2 group-focus-within:text-primary-600 transition-colors">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formState.message}
-                    onChange={handleChange}
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all hover:border-gray-300 resize-none"
-                    placeholder="Tell us about your project..."
-                    required
-                  ></textarea>
-                </div>
-                
-                <motion.button
-                  type="submit"
-                  whileHover={{ y: -4 }}
-                  whileTap={{ y: 0 }}
-                  className="w-full py-4 px-6 rounded-xl bg-primary-500 text-white font-medium transition-all duration-300 hover:bg-primary-600 hover:shadow-lg flex items-center justify-center space-x-2"
-                >
-                  <span>Send via WhatsApp</span>
-                  <Send className="w-5 h-5" />
-                </motion.button>
-              </form>
             </div>
           </motion.div>
         </div>
