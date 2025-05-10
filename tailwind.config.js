@@ -29,6 +29,7 @@ export default {
           900: '#7c2d12',
         },
         'custom-blue': '#429ad4',
+        'custom-orange': '#fbaf1b',
       },
       fontFamily: {
         sans: [

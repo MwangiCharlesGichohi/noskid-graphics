@@ -1,29 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import logo from '../assets/clients/logo.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-md py-3`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
@@ -33,7 +17,7 @@ const Navbar: React.FC = () => {
               alt="Noskid Graphics Logo" 
               className="h-12 w-12 object-contain"
             />
-            <span className="ml-2 text-xl font-bold text-orange-500">Noskid Graphics</span>
+            <span className="ml-2 text-xl font-bold text-custom-orange">Noskid Graphics</span>
           </div>
 
           {/* Desktop Navigation */}

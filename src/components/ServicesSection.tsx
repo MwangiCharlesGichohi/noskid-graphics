@@ -18,7 +18,7 @@ const services = [
   },
   {
     title: 'Printing',
-    description: 'We offer comprehensive printing solutions including digital, offset, large format, and merchandise printing for all your business needs.',
+    description: 'We offer comprehensive printing solutions including digital, offset, large format and merchandise printing for all your business needs.',
     icon: <Printer />,
     gradient: 'from-purple-500/10 to-red-500/10'
   },
@@ -30,13 +30,13 @@ const services = [
   },
   {
     title: 'Animation & Video',
-    description: 'We create engaging corporate videos, brand videos, showreels, CEO profiles, and explainer videos that tell your story.',
+    description: 'We create engaging corporate videos, brand videos, showreels and explainer videos that tell your story.',
     icon: <Video />,
     gradient: 'from-yellow-500/10 to-orange-500/10'
   },
   {
     title: 'Display Solutions',
-    description: 'Comprehensive display solutions including banners, frames, light boxes, and vehicle wraps to broadcast your brand effectively.',
+    description: 'Comprehensive display solutions including banners, frames and light boxes to broadcast your brand effectively.',
     icon: <Layout />,
     gradient: 'from-orange-500/10 to-pink-500/10'
   },
@@ -95,7 +95,7 @@ const ServicesSection: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What We Do Best</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#3563E9] via-[#8C6FE9] to-[#f04438] mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We deliver innovative solutions through our comprehensive creative design, print media, and digital services.
+            We deliver innovative solutions through our comprehensive creative design, print media and digital services.
           </p>
         </motion.div>
 
